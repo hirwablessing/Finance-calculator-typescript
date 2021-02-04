@@ -35,3 +35,25 @@ if (type.value === "invoice") {
 
 list.render(doc, type.value, 'end');
 
+//GENERICS
+
+//ENUMS
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
+
+interface Resource<T> {
+    uid: number;
+    resourceType: ResourceType;
+    data: T;
+}
+
+const docone: Resource<object> = {
+    uid: 1,
+    resourceType: ResourceType.BOOK,
+    data: { name: "tailwind css" }
+}
+
+const doctwo: Resource<string[]> = {
+    uid: 1,
+    resourceType: ResourceType.AUTHOR,
+    data: ["tailwind css", "bootstrap"]
+}
